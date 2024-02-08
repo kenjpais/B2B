@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import RoomJoinPage from "./RoomJoinPage";
 import CreateRoomPage from "./CreateRoomPage";
 import Room from "./Room";
+import Info from "./Info";
+import AudioPlayer from "./AudioPlayer";
+import GetAudio from "./GetAudio";
+
 import { Grid, Button, ButtonGroup, Typography } from "@material-ui/core";
 import {
   BrowserRouter as Router,
@@ -10,7 +14,6 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
-import Info from "./Info";
 
 export default class HomePage extends Component {
   constructor(props) {
@@ -35,8 +38,8 @@ export default class HomePage extends Component {
     return (
       <Grid container spacing={3}>
         <Grid item xs={12} align="center">
-          <Typography variant="h3" compact="h3">
-            House Party
+          <Typography variant="h3" compact="h3" color="primary">
+            B2B
           </Typography>
         </Grid>
         <Grid item xs={12} align="center">
@@ -49,6 +52,12 @@ export default class HomePage extends Component {
             </Button>
             <Button color="secondary" to="/create" component={Link}>
               Create a Room
+            </Button>
+            <Button color="secondary" to="/audio-player" component={Link}>
+              Audio Player
+            </Button>
+            <Button color="secondary" to="/get-audio" component={Link}>
+              Get Audio
             </Button>
           </ButtonGroup>
         </Grid>
@@ -77,9 +86,12 @@ export default class HomePage extends Component {
               );
             }}
           />
-          <Route path="/join" component={RoomJoinPage} />
-          <Route path="/info" component={Info} />
+          <Route path="/join" component={RoomJoinPage} />A
+          <Route path="/info" component={Info} />A
           <Route path="/create" component={CreateRoomPage} />
+          <Route path="/audio-player" component={AudioPlayer} />
+          <Route path="/get-audio" component={GetAudio} />
+
           <Route
             path="/room/:roomCode"
             render={(props) => {

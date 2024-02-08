@@ -18,7 +18,7 @@ export default class CreateRoomPage extends Component {
     guestCanPause: true,
     update: false,
     roomCode: null,
-    updateCallback: () => {},
+    updateCallback: () => { },
   };
 
   constructor(props) {
@@ -127,28 +127,12 @@ export default class CreateRoomPage extends Component {
     return (
       <Grid container spacing={1}>
         <Grid item xs={12} align="center">
-          <Collapse
-            in={this.state.errorMsg != "" || this.state.successMsg != ""}
-          >
+          <Collapse in={this.state.errorMsg != "" || this.state.successMsg != ""}>
             {this.state.successMsg != "" ? (
-              <Alert
-                severity="success"
-                onClose={() => {
-                  this.setState({ successMsg: "" });
-                }}
-              >
-                {this.state.successMsg}
-              </Alert>
+              <Alert severity="success" onClose={() => { this.setState({ successMsg: "" }) }}>{this.state.successMsg}</Alert>
             ) : (
-              <Alert
-                severity="error"
-                onClose={() => {
-                  this.setState({ errorMsg: "" });
-                }}
-              >
-                {this.state.errorMsg}
-              </Alert>
-            )}
+              <Alert severity="error" onClose={() => { this.setState({ errorMsg: "" }) }}>{this.state.errorMsg}</Alert>)
+            }
           </Collapse>
         </Grid>
         <Grid item xs={12} align="center">

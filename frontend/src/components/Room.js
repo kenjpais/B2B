@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Grid, Button, Typography } from "@material-ui/core";
 import CreateRoomPage from "./CreateRoomPage";
 import MusicPlayer from "./MusicPlayer";
+import Chat from "./Chat";
 
 export default class Room extends Component {
   constructor(props) {
@@ -146,15 +147,20 @@ export default class Room extends Component {
       return this.renderSettings();
     }
     return (
-      <Grid container spacing={1}>
-        <Grid item xs={12} align="center">
+      <Grid container
+        direction="row"
+        alignItems="flex-end"
+        spacing={1}>
+        <Grid item xs="auto">
           <Typography variant="h4" component="h4">
             Code: {this.roomCode}
           </Typography>
         </Grid>
-        <MusicPlayer {...this.state.song} />
-        {this.state.isHost ? this.renderSettingsButton() : null}
-        <Grid item xs={12} align="center">
+        <Grid item xs="auto">
+          <MusicPlayer {...this.state.song} />
+        </Grid>
+        <Grid item xs="auto">
+          {this.state.isHost ? this.renderSettingsButton() : null}
           <Button
             variant="contained"
             color="secondary"
@@ -162,6 +168,9 @@ export default class Room extends Component {
           >
             Leave Room
           </Button>
+        </Grid>
+        <Grid item xs="auto">
+          <Chat />
         </Grid>
       </Grid>
     );

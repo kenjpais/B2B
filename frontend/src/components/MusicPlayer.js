@@ -43,12 +43,12 @@ export default class MusicPlayer extends Component {
     const songProgress = (this.props.time / this.props.duration) * 100;
 
     return (
-      <Card>
-        <Grid container alignItems="center">
-          <Grid item align="center" xs={4}>
+      <Grid item xs="auto">
+        <Card>
+          <Grid item align="center" xs="auto">
             <img src={this.props.image_url} height="100%" width="100%" />
           </Grid>
-          <Grid item align="center" xs={8}>
+          <Grid item align="center" xs="auto">
             <Typography component="h5" variant="h5">
               {this.props.title}
             </Typography>
@@ -69,9 +69,9 @@ export default class MusicPlayer extends Component {
               </IconButton>
             </div>
           </Grid>
-        </Grid>
-        <LinearProgress variant="determinate" value={songProgress} />
-      </Card>
+          <LinearProgress variant="determinate" value={songProgress} />
+        </Card>
+      </Grid>
     );
   }
 }

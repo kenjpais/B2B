@@ -1,5 +1,4 @@
 """music_controller URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -15,10 +14,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#from django.conf.urls import url
+#from playlists.routing import websocket_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
     path('', include('frontend.urls')),
-    path('spotify/', include('spotify.urls'))
+    path('spotify/', include('spotify.urls')),
+    #url(r'^ws/', include(websocket_urlpatterns)),
 ]
